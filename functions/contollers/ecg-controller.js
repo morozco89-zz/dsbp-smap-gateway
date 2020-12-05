@@ -1,8 +1,9 @@
 const service = require('../domain/ecg/ecg-service')
 
 const controller = {
-    postECG: (req, res, next) => {
-        res.status(202).send(service.save(req.body))
+    postECG: async (req, res, next) => {
+        const response = await service.save(req.body)
+        res.status(202).send(response)
     }
 }
 
